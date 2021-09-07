@@ -42,9 +42,15 @@ public class Program {
         result[1] = -2 * Math.sqrt(q) * Math.cos(fi - 2 * Math.PI / 3) - floats[2] / 3;
         return result;
     }
-    public static double[] solveForFifthPower(double[] floats) {
+    public static double[] solveForFifthPower(double[] floats) { // неэффективное решение
         double[] result = new double[5];
-        // пока не подобрал решение
+        int counter = 0;
+        for (double i = -10000; i <= 10000; i += 0.0001 ) {
+            if ((floats[0] + floats[1] * i + floats[2] * i * i + floats[3] * i * i * i + floats[4] * i * i * i * i) == 0) {
+                result[counter] = i;
+                counter++;
+            }
+        }
         return result;
     }
 }
